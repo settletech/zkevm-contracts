@@ -47,9 +47,8 @@ export async function deployPolygonZkEVMDeployer(
         data: deployTxZKEVMDeployer,
         type: 0, // legacy transaction
         signature,
-        ...process.env.HARDHAT_NETWORK === 'localhost' && { chainId: process.env.CHAIN_ID || 1337 }
+        chainId: process.env.CHAIN_ID
     });
-
     const totalEther = gasLimit * gasPrice; // 0.1 ether
     const signerProvider = signer.provider as HardhatEthersProvider;
     // Check if it's already deployed
